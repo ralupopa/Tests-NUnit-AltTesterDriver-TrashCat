@@ -40,3 +40,14 @@ dotnet test --filter <test_class_name>
 ```
 dotnet test --filter <test_class_name>.<test_name>
 ```
+
+# Use all AltDriver methods which interact with components (methods, fields, properties)
+
+- [ ] [CallComponentMethod](https://alttester.com/docs/sdk/pages/commands.html#callcomponentmethod)
+
+
+
+### Workaround for being able to use SDK 1.8.2 installed as package in project:
+- get `altwebsocket-sharp.dll` from [here](https://github.com/alttester/AltTester-Unity-SDK/tree/development/Assets/AltTester/3rdParty/websocket-sharp/netstandard2.0) and put in project's bin\Debug\net7.0
+
+this was necessary due to currently open [issue](https://github.com/alttester/AltTester-Unity-SDK/issues/1192) 
