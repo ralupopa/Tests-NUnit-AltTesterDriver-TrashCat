@@ -21,6 +21,8 @@ namespace TrashCat.Tests.pages
         public List<AltObject> FindObjectsByComponentShopList { get => Driver.FindObjects(By.COMPONENT, "ShopItemListItem"); }
         public AltObject MagnetFindObjectByText { get => Driver.FindObject(By.TEXT, "Magnet"); }
         public List<AltObject> FindObjectsByTextBuy { get => Driver.FindObjects(By.TEXT, "BUY"); }
+        public AltObject PremiumFindObjectWhichContains { get => Driver.FindObjectWhichContains(By.NAME, "Premium"); }
+        public List<AltObject> FindObjectsWhichContainsItemEntry { get => Driver.FindObjectsWhichContain(By.NAME, "ItemEntry(Clone"); }
 
         public bool IsDisplayed()
         {

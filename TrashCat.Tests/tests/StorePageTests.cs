@@ -58,7 +58,7 @@ namespace TrashCat.Tests
         {
             Assert.NotNull(storePage.FindObjectByComponentNIS);
             Assert.NotNull(storePage.FindObjectsByComponentShopList);
-            Assert.AreEqual(storePage.FindObjectsByComponentShopList.Count, 4);
+            Assert.That(storePage.FindObjectsByComponentShopList.Count, Is.EqualTo(4));
         }
 
         [Test]
@@ -66,7 +66,27 @@ namespace TrashCat.Tests
         {
             Assert.NotNull(storePage.MagnetFindObjectByText);
             Assert.NotNull(storePage.FindObjectsByTextBuy);
-            Assert.AreEqual(storePage.FindObjectsByTextBuy.Count, 4);
+            Assert.That(storePage.FindObjectsByTextBuy.Count, Is.EqualTo(4));
+        }
+
+        [Test]
+        public void TestGetScreenshot()
+        {
+            var path="../../../test-screenshot.png";
+            altDriver.GetPNGScreenshot(path);
+            FileAssert.Exists(path);
+        }
+
+        [Test]
+        public void TestFindObjectWhichContains()
+        {
+            Assert.NotNull(storePage.PremiumFindObjectWhichContains);
+        }
+        [Test]
+        public void TestFindObjectsWhichContains()
+        {
+            Assert.NotNull(storePage.FindObjectsWhichContainsItemEntry);
+            Assert.That(storePage.FindObjectsWhichContainsItemEntry.Count, Is.EqualTo(4));
         }
     }
 }
