@@ -52,5 +52,21 @@ namespace TrashCat.Tests
             Thread.Sleep(3000);
             Assert.Greater(storePage.FindObjectsByTagUntagged.Count, 100);
         }
+
+        [Test]
+        public void TestFindObjectsByComponent()
+        {
+            Assert.NotNull(storePage.FindObjectByComponentNIS);
+            Assert.NotNull(storePage.FindObjectsByComponentShopList);
+            Assert.AreEqual(storePage.FindObjectsByComponentShopList.Count, 4);
+        }
+
+        [Test]
+        public void TestFindObjectByText()
+        {
+            Assert.NotNull(storePage.MagnetFindObjectByText);
+            Assert.NotNull(storePage.FindObjectsByTextBuy);
+            Assert.AreEqual(storePage.FindObjectsByTextBuy.Count, 4);
+        }
     }
 }
