@@ -21,8 +21,11 @@ namespace TrashCat.Tests.pages
         public List<AltObject> FindObjectsByComponentShopList { get => Driver.FindObjects(By.COMPONENT, "ShopItemListItem"); }
         public AltObject MagnetFindObjectByText { get => Driver.FindObject(By.TEXT, "Magnet"); }
         public List<AltObject> FindObjectsByTextBuy { get => Driver.FindObjects(By.TEXT, "BUY"); }
-        public AltObject PremiumFindObjectWhichContains { get => Driver.FindObjectWhichContains(By.NAME, "Premium"); }
-        public List<AltObject> FindObjectsWhichContainsItemEntry { get => Driver.FindObjectsWhichContain(By.NAME, "ItemEntry(Clone"); }
+        public AltObject FindObjectWhichContainsPremium { get => Driver.FindObjectWhichContains(By.NAME, "Premium"); }
+        public List<AltObject> FindObjectsWhichContainItemEntry { get => Driver.FindObjectsWhichContain(By.NAME, "ItemEntry(Clone"); }
+        public AltObject StoreTitleFindObjectAtCoordinates { get => Driver.FindObjectAtCoordinates(new AltVector2(548, 568)); }
+        public List<AltObject> GetAllEnabledObjects { get => Driver.GetAllElements(enabled: true); }
+        public List<AltObject> GetAllDisabledObjects { get => Driver.GetAllElements(enabled: false); }
 
         public bool IsDisplayed()
         {

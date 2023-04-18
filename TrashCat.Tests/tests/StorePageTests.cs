@@ -80,13 +80,36 @@ namespace TrashCat.Tests
         [Test]
         public void TestFindObjectWhichContains()
         {
-            Assert.NotNull(storePage.PremiumFindObjectWhichContains);
+            Assert.NotNull(storePage.FindObjectWhichContainsPremium);
         }
         [Test]
-        public void TestFindObjectsWhichContains()
+        public void TestFindObjectsWhichContain()
         {
-            Assert.NotNull(storePage.FindObjectsWhichContainsItemEntry);
-            Assert.That(storePage.FindObjectsWhichContainsItemEntry.Count, Is.EqualTo(4));
+            Assert.NotNull(storePage.FindObjectsWhichContainItemEntry);
+            Assert.That(storePage.FindObjectsWhichContainItemEntry.Count, Is.EqualTo(4));
         }
+        [Test]
+        public void TestFindObjectAtCoordinates()
+        {
+            Assert.NotNull(storePage.StoreTitleFindObjectAtCoordinates);
+            Assert.That(storePage.StoreTitleFindObjectAtCoordinates.GetText(), Is.EqualTo("STORE"));
+        }
+        [Test]
+        public void TestGetAllEnabledObjects()
+        {
+            Assert.IsNotEmpty(storePage.GetAllEnabledObjects);
+            var enabledObjectsCount = storePage.GetAllEnabledObjects.Count;
+            Console.WriteLine("There are " + enabledObjectsCount + " enabled objects.");
+            Assert.Greater(enabledObjectsCount, 300);
+        }
+        [Test]
+        public void TestGetAllDisabledObjects()
+        {
+            Assert.IsNotEmpty(storePage.GetAllDisabledObjects);
+            var disabledObjectsCount = storePage.GetAllDisabledObjects.Count;
+            Console.WriteLine("There are " + disabledObjectsCount + " disabled objects.");
+            Assert.Greater(disabledObjectsCount, 300);
+        }
+
     }
 }
