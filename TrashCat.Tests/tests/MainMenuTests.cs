@@ -31,12 +31,26 @@ namespace TrashCat.Tests
             Assert.True(mainMenuPage.IsDisplayed());
         }
 
-        [Test]
+        [Test, Description("Use GetComponentProperty and SetComponentProperty for property from 'Fields' column")]
         public void TestGetAndSetComponentPropertyString()
         {
             var newCharacterName = "Rich Cat";
             mainMenuPage.SetCharNameDisplay(newCharacterName);
             Assert.That(mainMenuPage.GetCharNameDisplay(), Is.EqualTo(newCharacterName));
+        }
+        [Test]
+        public void TestFindObjectByPathSelectChild()
+        {
+            Assert.NotNull(mainMenuPage.StartButtonChild);
+        }
+        [Test]
+        public void TestGetAndSetTextOnStartButton()
+        {
+            var newTextStartBtn = "Just play";
+            Assert.That(mainMenuPage.GetTextRunButton(), Is.EqualTo("Run!"));
+            mainMenuPage.SetTextRunButton(newTextStartBtn);
+            Assert.That(mainMenuPage.GetTextRunButton(), Is.EqualTo(newTextStartBtn));
+
         }
     }
 }

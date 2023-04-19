@@ -46,6 +46,8 @@ dotnet test --filter <test_class_name>.<test_name>
 - [ ] [CallComponentMethod](https://alttester.com/docs/sdk/pages/commands.html#callcomponentmethod)
 - [ ] [GetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#getcomponentproperty)
 - [ ] [SetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#setcomponentproperty)
+- [ ] [GetText](https://alttester.com/docs/sdk/pages/commands.html#gettext)
+- [ ] [SetText](https://alttester.com/docs/sdk/pages/commands.html#settext)
 
 
 
