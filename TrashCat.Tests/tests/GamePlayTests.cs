@@ -16,6 +16,9 @@ namespace TrashCat.Tests
             mainMenuPage = new MainMenuPage(altDriver);
             mainMenuPage.LoadScene();
 
+            Assert.NotNull(mainMenuPage.RunButton);
+            mainMenuPage.TapRun();
+
             gamePlayPage = new GamePlay(altDriver);
 
         }
@@ -29,14 +32,19 @@ namespace TrashCat.Tests
         [Test]
         public void TestWaitForObjectNotBePresent()
         {
-            Assert.NotNull(mainMenuPage.RunButton);
-            mainMenuPage.TapRun();
             Assert.True(gamePlayPage.IsDisplayed());
             altDriver.WaitForObjectNotBePresent(By.NAME, "StartButton", timeout: 5);
 
             Assert.NotNull(gamePlayPage.PauseButton);
             gamePlayPage.TapPause();
             altDriver.WaitForObjectNotBePresent(By.NAME, "pauseButton", timeout: 5);
+        }
+
+        [Test, Order(1)]
+        public void TestGetComponentPropertyInt()
+        {
+            Assert.True(gamePlayPage.IsDisplayed());
+            Assert.That(gamePlayPage.GetCurrentLife(), Is.EqualTo(3));
         }
 
     }

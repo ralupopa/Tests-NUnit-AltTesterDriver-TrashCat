@@ -10,7 +10,7 @@ namespace TrashCat.Tests.pages
             Driver.LoadScene("Main");
         }
 
-        public AltObject PauseButton { get => Driver.WaitForObject(By.NAME, "pauseButton", timeout: 2); }
+        public AltObject PauseButton { get => Driver.WaitForObject(By.NAME, "pauseButton", timeout: 5); }
         public AltObject Character { get => Driver.WaitForObject(By.NAME, "PlayerPivot"); }
 
         public bool IsDisplayed()
@@ -24,6 +24,9 @@ namespace TrashCat.Tests.pages
         {
             PauseButton.Tap();
         }
-
+        public int GetCurrentLife()
+        {
+            return Character.GetComponentProperty<int>("CharacterInputController", "currentLife", "Assembly-CSharp");
+        }
     }
 }
