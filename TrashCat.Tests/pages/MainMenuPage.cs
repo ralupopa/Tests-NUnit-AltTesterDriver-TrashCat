@@ -17,6 +17,7 @@ namespace TrashCat.Tests.pages
         public AltObject RunButton { get => Driver.WaitForObject(By.NAME, "StartButton", timeout: 10); }
         public AltObject CharacterName { get => Driver.WaitForObject(By.NAME, "CharName", timeout: 10); }
         public AltObject ThemeZone { get => Driver.WaitForObject(By.NAME, "ThemeZone", timeout: 10); }
+        public AltObject FindObjectByComponentLoadoutState { get => Driver.FindObject(By.COMPONENT, "LoadoutState"); }
 
         public bool IsDisplayed()
         {
@@ -29,6 +30,15 @@ namespace TrashCat.Tests.pages
         public void TapRun()
         {
             RunButton.Tap();
+        }
+        public string GetCharNameDisplay()
+        {
+            return FindObjectByComponentLoadoutState.GetComponentProperty<string>("LoadoutState", "charNameDisplay.text", "Assembly-CSharp");
+        }
+        public void SetCharNameDisplay(string valueToSet)
+        {
+            Assert.That(GetCharNameDisplay(), Is.EqualTo("Trash Cat"));
+            FindObjectByComponentLoadoutState.SetComponentProperty("LoadoutState", "charNameDisplay.text", valueToSet, "Assembly-CSharp");
         }
     }
 }
