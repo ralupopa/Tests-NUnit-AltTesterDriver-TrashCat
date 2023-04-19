@@ -32,5 +32,13 @@ namespace TrashCat.Tests.pages
         {
             return Character.CallComponentMethod<bool>("CharacterInputController", "IsCheatInvincible", "Assembly-CSharp", new object[] { });
         }
+
+        public void SetCurrentLife(int valueToSet)
+        {
+            Assert.NotNull(Character);
+            Assert.That(GetCurrentLife(), Is.EqualTo(3));
+
+            Character.SetComponentProperty("CharacterInputController", "currentLife", valueToSet, "Assembly-CSharp");
+        }
     }
 }

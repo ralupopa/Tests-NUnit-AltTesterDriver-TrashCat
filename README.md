@@ -44,6 +44,8 @@ dotnet test --filter <test_class_name>.<test_name>
 # Use all AltDriver methods which interact with components (methods, fields, properties)
 
 - [ ] [CallComponentMethod](https://alttester.com/docs/sdk/pages/commands.html#callcomponentmethod)
+- [ ] [GetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#getcomponentproperty)
+- [ ] [SetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#setcomponentproperty)
 
 
 
