@@ -26,6 +26,7 @@ namespace TrashCat.Tests.pages
         public AltObject StoreTitleFindObjectAtCoordinates { get => Driver.FindObjectAtCoordinates(new AltVector2(548, 568)); }
         public List<AltObject> GetAllEnabledObjects { get => Driver.GetAllElements(enabled: true); }
         public List<AltObject> GetAllDisabledObjects { get => Driver.GetAllElements(enabled: false); }
+        public AltObject WaitForObjectWhichContainsPremium { get => Driver.WaitForObjectWhichContains(By.NAME, "Premi", timeout: 5); }
 
         public bool IsDisplayed()
         {

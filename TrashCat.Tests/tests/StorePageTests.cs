@@ -111,5 +111,13 @@ namespace TrashCat.Tests
             Assert.Greater(disabledObjectsCount, 300);
         }
 
+        [Test]
+        public void TestWaitForObjectWhichContains()
+        {
+            var foundObject = storePage.WaitForObjectWhichContainsPremium;
+            Assert.NotNull(foundObject);
+            Assert.AreEqual(foundObject.name, "Premium");
+        }
+
     }
 }
