@@ -28,5 +28,9 @@ namespace TrashCat.Tests.pages
         {
             return Character.GetComponentProperty<int>("CharacterInputController", "currentLife", "Assembly-CSharp");
         }
+        public bool GetCheatInvincible()
+        {
+            return Character.CallComponentMethod<bool>("CharacterInputController", "IsCheatInvincible", "Assembly-CSharp", new object[] { });
+        }
     }
 }

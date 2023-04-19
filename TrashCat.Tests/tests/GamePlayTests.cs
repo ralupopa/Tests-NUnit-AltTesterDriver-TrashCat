@@ -55,5 +55,11 @@ namespace TrashCat.Tests
             Assert.That(gamePlayPage.GetCurrentLife(), Is.EqualTo(3));
         }
 
+        [Test]
+        public void TestCallComponentMethodBoolean()
+        {
+            Assert.False(gamePlayPage.GetCheatInvincible());
+        }
+
     }
 }
