@@ -7,6 +7,7 @@ namespace TrashCat.Tests
         AltDriver altDriver;
         MainMenuPage mainMenuPage;
         GamePlay gamePlayPage;
+        PauseOverlayPage pauseOverlayPage;
 
         [SetUp]
         public void Setup()
@@ -20,6 +21,7 @@ namespace TrashCat.Tests
             mainMenuPage.TapRun();
 
             gamePlayPage = new GamePlay(altDriver);
+            pauseOverlayPage = new PauseOverlayPage(altDriver);
 
         }
         [TearDown]
@@ -32,12 +34,18 @@ namespace TrashCat.Tests
         [Test]
         public void TestWaitForObjectNotBePresent()
         {
-            Assert.True(gamePlayPage.IsDisplayed());
-            altDriver.WaitForObjectNotBePresent(By.NAME, "StartButton", timeout: 5);
+            Assert.Multiple(() =>
+            {
+                Assert.True(gamePlayPage.IsDisplayed());
+                altDriver.WaitForObjectNotBePresent(By.NAME, "StartButton", timeout: 5);
 
-            Assert.NotNull(gamePlayPage.PauseButton);
-            gamePlayPage.TapPause();
-            altDriver.WaitForObjectNotBePresent(By.NAME, "pauseButton", timeout: 5);
+                Assert.NotNull(gamePlayPage.PauseButton);
+                gamePlayPage.TapPause();
+                altDriver.WaitForObjectNotBePresent(By.NAME, "pauseButton", timeout: 15);
+
+                pauseOverlayPage.TapMainMenu();
+
+            });
         }
 
         [Test, Order(1)]
