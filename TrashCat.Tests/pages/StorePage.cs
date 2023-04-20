@@ -47,5 +47,10 @@ namespace TrashCat.Tests.pages
             return ItemsTab.CallComponentMethod<object>("UnityEngine.UI.Button", "get_colors", "UnityEngine.UI", new object[] { });
         }
 
+        public string GetCurrentSelectionItemButton()
+        {
+            return ItemsTab.GetComponentProperty<string>("UnityEngine.UI.Button", "currentSelectionState", "UnityEngine.UI");
+        }
+
     }
 }

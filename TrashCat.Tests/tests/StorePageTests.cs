@@ -122,9 +122,24 @@ namespace TrashCat.Tests
         [Test]
         public void TestPointerUpAndDown()
         {
-            Assert.NotNull(storePage.ItemsTab);
-            Console.WriteLine(storePage.GetColorOfObject());
-            Console.WriteLine(storePage.CallComponentMethodGetColor());
+            var ItemsTabObject = storePage.ItemsTab;
+            Assert.NotNull(ItemsTabObject);
+            Assert.That(0.9607843f, Is.EqualTo(storePage.GetColorOfObject()));
+
+            var stateBeforePointDown = storePage.GetCurrentSelectionItemButton();
+            ItemsTabObject.PointerDownFromObject();
+
+            var stateAfterPointDown = storePage.GetCurrentSelectionItemButton();
+            Assert.That(stateBeforePointDown, Is.Not.EqualTo(stateAfterPointDown));
+
+            ItemsTabObject.PointerUpFromObject();
+            var stateAfterPointerUp = storePage.GetCurrentSelectionItemButton();
+            Assert.That(stateAfterPointDown, Is.Not.EqualTo(stateAfterPointerUp));
+        }
+        [Test]
+        public void TestCallComponentMethodForGetColors()
+        {
+            Assert.NotNull(storePage.CallComponentMethodGetColor());
         }
 
     }
