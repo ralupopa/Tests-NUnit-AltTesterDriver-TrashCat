@@ -27,6 +27,7 @@ namespace TrashCat.Tests.pages
         public List<AltObject> GetAllEnabledObjects { get => Driver.GetAllElements(enabled: true); }
         public List<AltObject> GetAllDisabledObjects { get => Driver.GetAllElements(enabled: false); }
         public AltObject WaitForObjectWhichContainsPremium { get => Driver.WaitForObjectWhichContains(By.NAME, "Premi", timeout: 5); }
+        public AltObject ItemsTab { get => Driver.FindObject(By.NAME, "Item"); }
 
         public bool IsDisplayed()
         {
@@ -34,6 +35,16 @@ namespace TrashCat.Tests.pages
                 && CoinsCounter != null && PremiumCounter != null)
                 return true;
             return false;
+        }
+
+        public float GetColorOfObject()
+        {
+            return ItemsTab.GetComponentProperty<float>("UnityEngine.UI.Button", "colors.highlightedColor.r", "UnityEngine.UI");
+        }
+
+        public object CallComponentMethodGetColor()
+        {
+            return ItemsTab.CallComponentMethod<object>("UnityEngine.UI.Button", "get_colors", "UnityEngine.UI", new object[] { });
         }
 
     }

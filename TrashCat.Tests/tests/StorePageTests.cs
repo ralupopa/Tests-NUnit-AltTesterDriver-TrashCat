@@ -119,5 +119,13 @@ namespace TrashCat.Tests
             Assert.That(foundObject.name, Is.EqualTo("Premium"));
         }
 
+        [Test]
+        public void TestPointerUpAndDown()
+        {
+            Assert.NotNull(storePage.ItemsTab);
+            Console.WriteLine(storePage.GetColorOfObject());
+            Console.WriteLine(storePage.CallComponentMethodGetColor());
+        }
+
     }
 }
