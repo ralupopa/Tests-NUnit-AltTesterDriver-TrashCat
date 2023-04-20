@@ -31,7 +31,8 @@ namespace TrashCat.Tests
             Assert.True(mainMenuPage.IsDisplayed());
         }
 
-        [Test, Description("Use GetComponentProperty and SetComponentProperty for property from 'Fields' column")]
+        [Test]
+        [Description("Use GetComponentProperty and SetComponentProperty for property from 'Fields' column")]
         public void TestGetAndSetComponentPropertyString()
         {
             var newCharacterName = "Rich Cat";
@@ -51,6 +52,14 @@ namespace TrashCat.Tests
             mainMenuPage.SetTextRunButton(newTextStartBtn);
             Assert.That(mainMenuPage.GetTextRunButton(), Is.EqualTo(newTextStartBtn));
 
+        }
+
+        [Test]
+        public void TestGetParent()
+        {
+            Assert.NotNull(mainMenuPage.StartButtonChild);
+            var startButton = mainMenuPage.StartButtonChild.GetParent();
+            Assert.That(startButton.name, Is.EqualTo("StartButton"));
         }
     }
 }

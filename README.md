@@ -48,7 +48,7 @@ dotnet test --filter <test_class_name>.<test_name>
 - [ ] [SetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#setcomponentproperty)
 - [ ] [GetText](https://alttester.com/docs/sdk/pages/commands.html#gettext)
 - [ ] [SetText](https://alttester.com/docs/sdk/pages/commands.html#settext)
-
+- [ ] [GetParent](https://alttester.com/docs/sdk/pages/commands.html#getparent)
 
 
 ### Workaround for being able to use SDK 1.8.2 installed as package in project:
