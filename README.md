@@ -49,6 +49,9 @@ dotnet test --filter <test_class_name>.<test_name>
 - [ ] [GetText](https://alttester.com/docs/sdk/pages/commands.html#gettext)
 - [ ] [SetText](https://alttester.com/docs/sdk/pages/commands.html#settext)
 - [ ] [GetParent](https://alttester.com/docs/sdk/pages/commands.html#getparent)
+- [ ] [Tap](https://alttester.com/docs/sdk/pages/commands.html#id1)
+- [ ] [PointerDownFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerdown)
+- [ ] [PointerUpFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerup)
 
 
 ### Workaround for being able to use SDK 1.8.2 installed as package in project:
