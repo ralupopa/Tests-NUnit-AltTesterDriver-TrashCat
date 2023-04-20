@@ -116,7 +116,7 @@ namespace TrashCat.Tests
         {
             var foundObject = storePage.WaitForObjectWhichContainsPremium;
             Assert.NotNull(foundObject);
-            Assert.AreEqual(foundObject.name, "Premium");
+            Assert.That(foundObject.name, Is.EqualTo("Premium"));
         }
 
     }

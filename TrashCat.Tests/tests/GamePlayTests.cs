@@ -48,7 +48,8 @@ namespace TrashCat.Tests
             });
         }
 
-        [Test, Order(1)]
+        [Test]
+        [Order(1)]
         public void TestGetComponentPropertyInt()
         {
             Assert.True(gamePlayPage.IsDisplayed());
