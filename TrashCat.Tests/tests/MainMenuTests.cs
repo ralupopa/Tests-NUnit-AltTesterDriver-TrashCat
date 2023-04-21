@@ -98,9 +98,13 @@ namespace TrashCat.Tests
                 var stateBeforePointerEnter = mainMenuPage.GetCurrentSelectionForObject(AboutBtn);
                 Assert.That(stateBeforePointerEnter, Is.EqualTo("0"));
 
-                AboutBtn.PointerEnterObject();
+                Console.WriteLine("Before " + mainMenuPage.GetColorFromObject(AboutBtn));
+
+                //AboutBtn.PointerEnterObject();
+                Console.WriteLine(mainMenuPage.CallComponentMethodOnPointerEnter(AboutBtn));
                 altDriver.SetDelayAfterCommand(3);
-                Console.WriteLine(mainMenuPage.GetCurrentSelectionForObject(AboutBtn));
+                //Console.WriteLine(mainMenuPage.GetCurrentSelectionForObject(AboutBtn));
+                Console.WriteLine("After " + mainMenuPage.GetColorFromObject(AboutBtn));
 
                 mainMenuPage.TapCloseSettings();
             });

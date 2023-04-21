@@ -63,5 +63,13 @@ namespace TrashCat.Tests.pages
         {
             return Object.GetComponentProperty<string>("UnityEngine.UI.Button", "currentSelectionState", "UnityEngine.UI");
         }
+        public object GetColorFromObject(AltObject Object)
+        {
+            return Object.CallComponentMethod<object>("UnityEngine.CanvasRenderer", "GetColor", "UnityEngine.UIModule", new object[] { });
+        }
+        public object CallComponentMethodOnPointerEnter(AltObject Object)
+        {
+            return Object.CallComponentMethod<object>("UnityEngine.UI.Button", "OnPointerEnter", "UnityEngine.UI", new object[] { });
+        }
     }
 }
