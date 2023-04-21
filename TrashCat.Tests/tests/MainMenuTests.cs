@@ -86,5 +86,24 @@ namespace TrashCat.Tests
             });
         }
 
+        [Test]
+        public void TestAboutPointerEnterAndExit()
+        {
+            mainMenuPage.TapSettings();
+            var AboutBtn = mainMenuPage.AboutButton;
+            Assert.NotNull(AboutBtn);
+
+            Assert.Multiple(() =>
+            {
+                var stateBeforePointerEnter = mainMenuPage.GetCurrentSelectionForObject(AboutBtn);
+                Assert.That(stateBeforePointerEnter, Is.EqualTo("0"));
+
+                AboutBtn.PointerEnterObject();
+                altDriver.SetDelayAfterCommand(3);
+                Console.WriteLine(mainMenuPage.GetCurrentSelectionForObject(AboutBtn));
+
+                mainMenuPage.TapCloseSettings();
+            });
+        }
     }
 }
