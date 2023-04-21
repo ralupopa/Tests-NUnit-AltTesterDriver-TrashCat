@@ -61,5 +61,30 @@ namespace TrashCat.Tests
             var startButton = mainMenuPage.StartButtonChild.GetParent();
             Assert.That(startButton.name, Is.EqualTo("StartButton"));
         }
+
+        [Test]
+        public void TestMoveMouseToObjectCoordinates()
+        {
+            mainMenuPage.TapSettings();
+            var AboutBtn = mainMenuPage.AboutButton;
+            Assert.NotNull(AboutBtn);
+            var btnWorldCoordinates = AboutBtn.GetWorldPosition();
+
+            Assert.Multiple(() =>
+            {
+                var stateBeforeMoveMouse = mainMenuPage.GetCurrentSelectionForObject(AboutBtn);
+                Assert.That(stateBeforeMoveMouse, Is.EqualTo("0"));
+
+                altDriver.MoveMouse(new AltVector2(btnWorldCoordinates.x, btnWorldCoordinates.y), 1);
+
+                var stateAfterMoveMouse = mainMenuPage.GetCurrentSelectionForObject(AboutBtn);
+                altDriver.SetDelayAfterCommand(2);
+                Assert.That(stateAfterMoveMouse, Is.EqualTo("1"));
+
+                Assert.That(stateBeforeMoveMouse, Is.Not.EqualTo(stateAfterMoveMouse));
+                mainMenuPage.TapCloseSettings();
+            });
+        }
+
     }
 }

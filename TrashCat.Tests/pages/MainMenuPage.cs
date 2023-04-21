@@ -19,6 +19,8 @@ namespace TrashCat.Tests.pages
         public AltObject ThemeZone { get => Driver.WaitForObject(By.NAME, "ThemeZone", timeout: 10); }
         public AltObject FindObjectByComponentLoadoutState { get => Driver.FindObject(By.COMPONENT, "LoadoutState"); }
         public AltObject StartButtonChild { get => Driver.FindObject(By.PATH, "//StartButton/Text"); }
+        public AltObject AboutButton { get => Driver.FindObject(By.NAME, "About"); }
+        public AltObject CloseSettingsButton { get => Driver.FindObject(By.PATH, "//SettingPopup/*/CloseButton"); }
 
         public bool IsDisplayed()
         {
@@ -48,6 +50,18 @@ namespace TrashCat.Tests.pages
         public void SetTextRunButton(string valueToSet)
         {
             StartButtonChild.SetText(valueToSet);
+        }
+        public void TapSettings()
+        {
+            SettingsButton.Tap();
+        }
+        public void TapCloseSettings()
+        {
+            CloseSettingsButton.Tap();
+        }
+        public string GetCurrentSelectionForObject(AltObject Object)
+        {
+            return Object.GetComponentProperty<string>("UnityEngine.UI.Button", "currentSelectionState", "UnityEngine.UI");
         }
     }
 }
