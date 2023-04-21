@@ -24,6 +24,10 @@ namespace TrashCat.Tests.pages
         {
             PauseButton.Tap();
         }
+        public void ClickPause()
+        {
+            PauseButton.Click();
+        }
         public int GetCurrentLife()
         {
             return Character.GetComponentProperty<int>("CharacterInputController", "currentLife", "Assembly-CSharp");

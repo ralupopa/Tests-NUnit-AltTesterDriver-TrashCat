@@ -43,8 +43,8 @@ namespace TrashCat.Tests
                 gamePlayPage.TapPause();
                 altDriver.WaitForObjectNotBePresent(By.NAME, "pauseButton", timeout: 15);
 
+                Assert.True(pauseOverlayPage.IsDisplayed());
                 pauseOverlayPage.TapMainMenu();
-
             });
         }
 
@@ -57,17 +57,42 @@ namespace TrashCat.Tests
         }
 
         [Test]
+        [Order(2)]
         public void TestCallComponentMethodBoolean()
         {
             Assert.False(gamePlayPage.GetCheatInvincible());
         }
 
         [Test]
+        [Order(3)]
         public void TestSetComponentPropertyInt()
         {
             gamePlayPage.SetCurrentLife(5);
             Assert.That(gamePlayPage.GetCurrentLife(), Is.EqualTo(5));
         }
+        [Test]
+        [Order(4)]
+        public void TestUpdateObject()
+        {
+            Assert.NotNull(gamePlayPage.Character);
 
+            Assert.Multiple(() =>
+            {
+                var TrashCat = gamePlayPage.Character;
+
+                AltVector3 initialPostion = TrashCat.GetWorldPosition();
+
+                Thread.Sleep(8000);
+
+                AltVector3 AfterStartPostion = TrashCat.UpdateObject().GetWorldPosition();
+
+                Assert.That(initialPostion, Is.Not.EqualTo(AfterStartPostion));
+
+                gamePlayPage.ClickPause();
+
+                Assert.True(pauseOverlayPage.IsDisplayed());
+                pauseOverlayPage.TapMainMenu();
+            });
+        }
     }
 }
