@@ -126,20 +126,43 @@ namespace TrashCat.Tests
             Assert.NotNull(ItemsTabObject);
             Assert.That(0.9607843f, Is.EqualTo(storePage.GetColorOfObject()));
 
-            var stateBeforePointDown = storePage.GetCurrentSelectionItemButton();
+            var stateBeforePointDown = storePage.GetCurrentSelectionForObject(ItemsTabObject);
             ItemsTabObject.PointerDownFromObject();
 
-            var stateAfterPointDown = storePage.GetCurrentSelectionItemButton();
+            var stateAfterPointDown = storePage.GetCurrentSelectionForObject(ItemsTabObject);
             Assert.That(stateBeforePointDown, Is.Not.EqualTo(stateAfterPointDown));
 
             ItemsTabObject.PointerUpFromObject();
-            var stateAfterPointerUp = storePage.GetCurrentSelectionItemButton();
+            var stateAfterPointerUp = storePage.GetCurrentSelectionForObject(ItemsTabObject);
             Assert.That(stateAfterPointDown, Is.Not.EqualTo(stateAfterPointerUp));
         }
         [Test]
         public void TestCallComponentMethodForGetColors()
         {
             Assert.NotNull(storePage.CallComponentMethodGetColor());
+        }
+        [Test]
+        public void TestPointerEnterAndExit()
+        {
+            var BuyButtonFirst = storePage.FindObjectsByTextBuy[0].GetParent();
+            Assert.NotNull(BuyButtonFirst);
+
+            var stateBeforePointEnter = storePage.GetCurrentSelectionForObject(BuyButtonFirst);
+            BuyButtonFirst.PointerEnterObject();
+
+            var stateAfterPointEnter = storePage.GetCurrentSelectionForObject(BuyButtonFirst);
+            Assert.That(stateBeforePointEnter, Is.Not.EqualTo(stateAfterPointEnter));
+
+            // var before = storePage.CallComponentMethodIsHighlighted();
+            // Console.WriteLine(altDriver.GetDelayAfterCommand());
+            // Console.WriteLine(before);
+
+            // BuyButtonFirst.PointerEnterObject();
+            // altDriver.SetDelayAfterCommand(5);
+            // Console.WriteLine(altDriver.GetDelayAfterCommand());
+            // var after = storePage.CallComponentMethodIsHighlighted();
+            // Console.WriteLine(after);
+            //Assert.That(before, Is.Not.EqualTo(after));
         }
 
     }
