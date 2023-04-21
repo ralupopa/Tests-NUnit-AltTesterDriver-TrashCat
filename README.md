@@ -41,17 +41,24 @@ dotnet test --filter <test_class_name>
 dotnet test --filter <test_class_name>.<test_name>
 ```
 
-# Use all AltDriver methods which interact with components (methods, fields, properties)
+# Used the following AltObject methods which interact with components (methods, fields, properties)
 
-- [ ] [CallComponentMethod](https://alttester.com/docs/sdk/pages/commands.html#callcomponentmethod)
-- [ ] [GetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#getcomponentproperty)
-- [ ] [SetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#setcomponentproperty)
-- [ ] [GetText](https://alttester.com/docs/sdk/pages/commands.html#gettext)
-- [ ] [SetText](https://alttester.com/docs/sdk/pages/commands.html#settext)
-- [ ] [GetParent](https://alttester.com/docs/sdk/pages/commands.html#getparent)
-- [ ] [Tap](https://alttester.com/docs/sdk/pages/commands.html#id1)
-- [ ] [PointerDownFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerdown)
-- [ ] [PointerUpFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerup)
+- [x] [CallComponentMethod](https://alttester.com/docs/sdk/pages/commands.html#callcomponentmethod)
+- [x] [GetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#getcomponentproperty)
+- [x] [SetComponentProperty](https://alttester.com/docs/sdk/pages/commands.html#setcomponentproperty)
+- [x] [GetText](https://alttester.com/docs/sdk/pages/commands.html#gettext)
+- [x] [SetText](https://alttester.com/docs/sdk/pages/commands.html#settext)
+- [x] [GetParent](https://alttester.com/docs/sdk/pages/commands.html#getparent)
+- [x] [UpdateObject](https://alttester.com/docs/sdk/pages/commands.html#updateobject)
+- [x] [Tap](https://alttester.com/docs/sdk/pages/commands.html#id1)
+- [x] [Click](https://alttester.com/docs/sdk/pages/commands.html#id2)
+- [x] [PointerDownFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerdown)
+- [x] [PointerUpFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerup)
+- [ ] [PointerEnterObject](https://alttester.com/docs/sdk/pages/commands.html#pointerenter)
+- [ ] [PointerExitObject](https://alttester.com/docs/sdk/pages/commands.html#pointerexit)
+
+# Used the following AltDriver > Unity Commands methods
+- [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod) 
 
 
 ### Workaround for being able to use SDK 1.8.2 installed as package in project:
