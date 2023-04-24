@@ -56,6 +56,12 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] [PointerUpFromObject](https://alttester.com/docs/sdk/pages/commands.html#pointerup)
 - [ ] [PointerEnterObject](https://alttester.com/docs/sdk/pages/commands.html#pointerenter)
 - [ ] [PointerExitObject](https://alttester.com/docs/sdk/pages/commands.html#pointerexit)
+- [x] GetWorldPosition
+- [x] GetScreenPosition
+- [ ] WaitForComponentProperty
+- [ ] GetAllComponents
+- [ ] GetAllProperties
+- [ ] GetAllMethods
 
 # Used the following AltDriver > Unity Commands methods
 - [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod) 

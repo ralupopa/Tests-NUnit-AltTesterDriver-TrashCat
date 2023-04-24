@@ -76,6 +76,25 @@ namespace TrashCat.Tests
             altDriver.GetPNGScreenshot(path);
             FileAssert.Exists(path);
         }
+        [Test]
+        public void TestGetScreenPosition()
+        {
+            AltObject premiumBtn = storePage.PremiumCounter;
+            AltVector2 screenPosition = premiumBtn.GetScreenPosition();
+            Assert.NotNull(screenPosition);
+            Assert.That(premiumBtn.x, Is.EqualTo(screenPosition.x));
+            Assert.That(premiumBtn.y, Is.EqualTo(screenPosition.y));
+        }
+        [Test]
+        public void TestGetWorldPosition()
+        {
+            AltObject premiumBtn = storePage.PremiumCounter;
+            AltVector3 worldPosition = premiumBtn.GetWorldPosition();
+            Assert.NotNull(worldPosition);
+            Assert.That(worldPosition.x, Is.EqualTo(premiumBtn.worldX));
+            Assert.That(worldPosition.y, Is.EqualTo(premiumBtn.worldY));
+            Assert.That(worldPosition.z, Is.EqualTo(premiumBtn.worldZ));
+        }
 
         [Test]
         public void TestFindObjectWhichContains()
