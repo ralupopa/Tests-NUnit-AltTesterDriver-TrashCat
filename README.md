@@ -72,8 +72,8 @@ dotnet test --filter <test_class_name>.<test_name>
     - [x] By.TAG
     - [x] By.COMPONENT
     - [x] By.TEXT
-    - [x] By.ID
-    - [x] By.LAYER
+    - [ ] By.ID
+    - [ ] By.LAYER
 - [x] [FindObjects](https://alttester.com/docs/sdk/pages/commands.html#findobjects)
 - [x] [FindObjectWhichContains](https://alttester.com/docs/sdk/pages/commands.html#findobjectwhichcontains)
 - [x] [FindObjectsWhichContain](https://alttester.com/docs/sdk/pages/commands.html#findobjectswhichcontain)
@@ -84,7 +84,21 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] [WaitForObjectNotBePresent](https://alttester.com/docs/sdk/pages/commands.html#waitforobjectnotbepresent)
 
 # Used the following AltDriver > Unity Commands methods
-- [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod) 
+- [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod)
+- [ ] [GetStaticProperty](https://alttester.com/docs/sdk/pages/commands.html#getstaticproperty)
+- [ ] [SetStaticProperty](https://alttester.com/docs/sdk/pages/commands.html#setstaticproperty)
+- [ ] [GetTimeScale](https://alttester.com/docs/sdk/pages/commands.html#gettimescale)
+- [ ] [SetTimeScale](https://alttester.com/docs/sdk/pages/commands.html#settimescale)
+- [ ] [GetApplicationScreenSize](https://alttester.com/docs/sdk/pages/commands.html#getapplicationscreensize)
+- [ ] [WaitForCurrentSceneToBe](https://alttester.com/docs/sdk/pages/commands.html#waitforcurrentscenetobe)
+- [ ] [GetAllLoadedScenes](https://alttester.com/docs/sdk/pages/commands.html#getallloadedscenes)
+- [ ] [UnloadScene](https://alttester.com/docs/sdk/pages/commands.html#unloadscene)
+- [ ] [LoadScene](https://alttester.com/docs/sdk/pages/commands.html#loadscene)
+- [ ] [GetCurrentScene](https://alttester.com/docs/sdk/pages/commands.html#getcurrentscene)
+- [ ] [PlayerPrefKeyType](https://alttester.com/docs/sdk/pages/commands.html#playerprefkeytype)
+- [ ] [GettingPlayerPrefs](https://alttester.com/docs/sdk/pages/commands.html#gettingplayerprefs)
+- [ ] [DeleteKeyPlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deletekeyplayerpref)
+- [ ] [DeletePlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deleteplayerpref)
 
 
 ### Workaround for being able to use SDK 1.8.2 installed as package in project:
