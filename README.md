@@ -58,8 +58,8 @@ dotnet test --filter <test_class_name>.<test_name>
 - [ ] [PointerExitObject](https://alttester.com/docs/sdk/pages/commands.html#pointerexit)
 - [x] GetWorldPosition
 - [x] GetScreenPosition
-- [ ] WaitForComponentProperty
-- [ ] GetAllComponents
+- [ ] ~~WaitForComponentProperty~~ it's not implemented for 1.8.2, will be available in future
+- [x] GetAllComponents
 - [ ] GetAllProperties
 - [ ] GetAllMethods
 

@@ -109,5 +109,30 @@ namespace TrashCat.Tests
                 mainMenuPage.TapCloseSettings();
             });
         }
+        [Test]
+        public void TestGetAllComponents()
+        {
+            var expectedComponents = ListOfComponentNamesForStoreButton();
+            var storeBtnComponentsList = mainMenuPage.StoreButton.GetAllComponents();
+
+            Assert.IsNotEmpty(storeBtnComponentsList);
+            for (int index = 0; index <= storeBtnComponentsList.Count-1; index++)
+            {
+                Assert.That(storeBtnComponentsList[index].componentName, Is.EqualTo(expectedComponents[index]));
+            }
+        }
+        public static List<string> ListOfComponentNamesForStoreButton()
+        {
+            var listComponents = new List<string>()
+            {
+                "UnityEngine.RectTransform",
+                "UnityEngine.CanvasRenderer",
+                "UnityEngine.UI.Image",
+                "UnityEngine.UI.Button",
+                "LevelLoader",
+                "UnityEngine.AudioSource"
+            };
+            return listComponents;
+        }
     }
 }
