@@ -61,7 +61,7 @@ dotnet test --filter <test_class_name>.<test_name>
 - [ ] ~~WaitForComponentProperty~~ it's not implemented for 1.8.2, will be available in future
 - [x] GetAllComponents
 - [x] GetAllProperties
-- [ ] GetAllMethods
+- [x] GetAllMethods
 
 # Used the following AltDriver > Unity Commands methods
 - [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod) 

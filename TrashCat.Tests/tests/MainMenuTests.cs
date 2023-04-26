@@ -131,6 +131,16 @@ namespace TrashCat.Tests
             Assert.That(storeBtnProperties[0].name, Is.EqualTo("hasPopInstruction"));
             Assert.That(storeBtnProperties[0].value, Is.EqualTo("False"));
         }
+        [Test]
+        public void TestGetAllMethods()
+        {
+            AltComponent testComponent = new AltComponent("UnityEngine.CanvasRenderer", "UnityEngine.UIModule");
+            var storeBtnMethods = mainMenuPage.StoreButton.GetAllMethods(testComponent);
+
+            Assert.That(storeBtnMethods.Count, Is.EqualTo(108));
+            Assert.That(storeBtnMethods[0], Is.EqualTo("Boolean get_hasPopInstruction()"));
+            Assert.That(storeBtnMethods[1], Is.EqualTo("Void set_hasPopInstruction(Boolean)"));
+        }
         public static List<string> ListOfComponentNamesForStoreButton()
         {
             var listComponents = new List<string>()
