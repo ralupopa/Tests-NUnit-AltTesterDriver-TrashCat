@@ -132,6 +132,16 @@ namespace TrashCat.Tests
             Assert.That(storeBtnProperties[0].value, Is.EqualTo("False"));
         }
         [Test]
+        public void TestGetAllFields()
+        {
+            AltComponent testComponent = new AltComponent("UnityEngine.UI.Button", "UnityEngine.UI");
+            var storeBtnFields = mainMenuPage.StoreButton.GetAllFields(testComponent);
+
+            Assert.That(storeBtnFields.Count, Is.EqualTo(2));
+            Assert.That(storeBtnFields[0].name, Is.EqualTo("m_OnClick"));
+            Assert.That(storeBtnFields[1].name, Is.EqualTo("m_CurrentIndex"));
+        }
+        [Test]
         public void TestGetAllMethods()
         {
             AltComponent testComponent = new AltComponent("UnityEngine.CanvasRenderer", "UnityEngine.UIModule");
