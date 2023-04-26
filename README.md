@@ -64,6 +64,25 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] GetAllFields
 - [x] GetAllMethods
 
+# Used the following AltDriver > Find Objects methods
+- [x] [FindObject](https://alttester.com/docs/sdk/pages/commands.html#findobject)
+- [By-Selector](https://alttester.com/docs/sdk/pages/commands.html#by-selector)
+    - [x] By.NAME
+    - [x] By.PATH
+    - [x] By.TAG
+    - [x] By.COMPONENT
+    - [x] By.TEXT
+    - [x] By.ID
+    - [x] By.LAYER
+- [x] [FindObjects](https://alttester.com/docs/sdk/pages/commands.html#findobjects)
+- [x] [FindObjectWhichContains](https://alttester.com/docs/sdk/pages/commands.html#findobjectwhichcontains)
+- [x] [FindObjectsWhichContain](https://alttester.com/docs/sdk/pages/commands.html#findobjectswhichcontain)
+- [x] [FindObjectAtCoordinates](https://alttester.com/docs/sdk/pages/commands.html#findobjectatcoordinates)
+- [x] [GetAllElements](https://alttester.com/docs/sdk/pages/commands.html#getallelements)
+- [x] [WaitForObject](https://alttester.com/docs/sdk/pages/commands.html#waitforobject)
+- [x] [WaitForObjectWhichContains](https://alttester.com/docs/sdk/pages/commands.html#waitforobjectwhichcontains)
+- [x] [WaitForObjectNotBePresent](https://alttester.com/docs/sdk/pages/commands.html#waitforobjectnotbepresent)
+
 # Used the following AltDriver > Unity Commands methods
 - [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod) 
 
