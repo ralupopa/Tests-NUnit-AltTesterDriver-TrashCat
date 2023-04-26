@@ -60,7 +60,7 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] GetScreenPosition
 - [ ] ~~WaitForComponentProperty~~ it's not implemented for 1.8.2, will be available in future
 - [x] GetAllComponents
-- [ ] GetAllProperties
+- [x] GetAllProperties
 - [ ] GetAllMethods
 
 # Used the following AltDriver > Unity Commands methods

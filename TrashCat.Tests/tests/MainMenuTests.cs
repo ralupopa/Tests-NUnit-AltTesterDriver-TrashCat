@@ -121,6 +121,16 @@ namespace TrashCat.Tests
                 Assert.That(storeBtnComponentsList[index].componentName, Is.EqualTo(expectedComponents[index]));
             }
         }
+        [Test]
+        public void TestGetAllProperties()
+        {
+            AltComponent testComponent = new AltComponent("UnityEngine.CanvasRenderer", "UnityEngine.UIModule");
+            var storeBtnProperties = mainMenuPage.StoreButton.GetAllProperties(testComponent);
+
+            Assert.That(storeBtnProperties.Count, Is.EqualTo(16));
+            Assert.That(storeBtnProperties[0].name, Is.EqualTo("hasPopInstruction"));
+            Assert.That(storeBtnProperties[0].value, Is.EqualTo("False"));
+        }
         public static List<string> ListOfComponentNamesForStoreButton()
         {
             var listComponents = new List<string>()
