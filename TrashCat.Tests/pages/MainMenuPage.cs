@@ -67,6 +67,14 @@ namespace TrashCat.Tests.pages
         {
             return Object.CallComponentMethod<object>("UnityEngine.CanvasRenderer", "GetColor", "UnityEngine.UIModule", new object[] { });
         }
+        public short GetScreenWidth()
+        {
+            return Driver.CallStaticMethod<short>("UnityEngine.Screen", "get_width", "UnityEngine.CoreModule", new string[] { }, null);
+        }
+        public short GetScreenHeight()
+        {
+            return Driver.CallStaticMethod<short>("UnityEngine.Screen", "get_height", "UnityEngine.CoreModule", new string[] { }, null);
+        }
 
     }
 }

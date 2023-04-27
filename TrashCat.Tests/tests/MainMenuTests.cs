@@ -150,6 +150,19 @@ namespace TrashCat.Tests
             Assert.That(storeBtnMethods[0], Is.EqualTo("Boolean get_hasPopInstruction()"));
             Assert.That(storeBtnMethods[1], Is.EqualTo("Void set_hasPopInstruction(Boolean)"));
         }
+        [Test]
+        public void TestCallStaticMethod()
+        {
+            var screenWidth = mainMenuPage.GetScreenWidth();
+            var screenHeight = mainMenuPage.GetScreenHeight();
+            var screenshot = altDriver.GetScreenshot();
+            Assert.True(screenshot.textureSize.x == screenWidth);
+            Assert.True(screenshot.textureSize.y == screenHeight);
+
+            // because struct AltTextureInformation has AltVector3 as attribute
+            Assert.That(screenshot.textureSize.z, Is.EqualTo(0));
+            Console.WriteLine(screenshot.scaleDifference.x);
+        }
         public static List<string> ListOfComponentNamesForStoreButton()
         {
             var listComponents = new List<string>()
