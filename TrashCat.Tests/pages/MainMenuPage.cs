@@ -75,6 +75,22 @@ namespace TrashCat.Tests.pages
         {
             return Driver.CallStaticMethod<short>("UnityEngine.Screen", "get_height", "UnityEngine.CoreModule", new string[] { }, null);
         }
+        public short GetScreenWidthFromProperty()
+        {
+            return Driver.GetStaticProperty<short>("UnityEngine.Screen", "width", "UnityEngine.CoreModule");
+        }
+        public void SetScreenResolutionUsingCallStaticMethod(string widthSet)
+        {
+            string[] parameters = new[] { widthSet, "680", "false" };
+            string [] typeOfParameters = new[] { "System.Int32", "System.Int32", "System.Boolean" };
+            Driver.CallStaticMethod<string>("UnityEngine.Screen", "SetResolution", "UnityEngine.CoreModule", parameters, typeOfParameters );
+        }
+        public void SetFullScreenUsingSetStaticProperty()
+        {
+            string[] parameters = new[] {"true"};
+            // fails with "Object reference not set to an instance of an object"
+            Driver.SetStaticProperty("UnityEngine.Screen", "fullScreen", "UnityEngine.CoreModule", null);
+        }
 
     }
 }

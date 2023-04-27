@@ -84,8 +84,8 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] [WaitForObjectNotBePresent](https://alttester.com/docs/sdk/pages/commands.html#waitforobjectnotbepresent)
 
 # Used the following AltDriver > Unity Commands methods
-- [ ] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod)
-- [ ] [GetStaticProperty](https://alttester.com/docs/sdk/pages/commands.html#getstaticproperty)
+- [x] [CallStaticMethod](https://alttester.com/docs/sdk/pages/commands.html#callstaticmethod)
+- [x] [GetStaticProperty](https://alttester.com/docs/sdk/pages/commands.html#getstaticproperty)
 - [ ] [SetStaticProperty](https://alttester.com/docs/sdk/pages/commands.html#setstaticproperty)
 - [ ] [GetTimeScale](https://alttester.com/docs/sdk/pages/commands.html#gettimescale)
 - [ ] [SetTimeScale](https://alttester.com/docs/sdk/pages/commands.html#settimescale)

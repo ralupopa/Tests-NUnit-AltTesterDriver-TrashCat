@@ -163,6 +163,20 @@ namespace TrashCat.Tests
             Assert.That(screenshot.textureSize.z, Is.EqualTo(0));
             Console.WriteLine(screenshot.scaleDifference.x);
         }
+        [Test]
+        public void TestGetAndSetStaticProperty()
+        {
+            var screenWidthBefore = mainMenuPage.GetScreenWidthFromProperty();
+            Console.WriteLine(screenWidthBefore);
+
+            var newWidth = "1240";
+            mainMenuPage.SetScreenResolutionUsingCallStaticMethod(newWidth);
+
+            var screenWidthAfter = mainMenuPage.GetScreenWidthFromProperty();
+            Assert.That(screenWidthAfter.ToString(), Is.EqualTo(newWidth));
+
+            mainMenuPage.SetFullScreenUsingSetStaticProperty();
+        }
         public static List<string> ListOfComponentNamesForStoreButton()
         {
             var listComponents = new List<string>()
