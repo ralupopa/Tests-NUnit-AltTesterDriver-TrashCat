@@ -67,9 +67,6 @@ namespace TrashCat.Tests.pages
         {
             return Object.CallComponentMethod<object>("UnityEngine.CanvasRenderer", "GetColor", "UnityEngine.UIModule", new object[] { });
         }
-        public object CallComponentMethodOnPointerEnter(AltObject Object)
-        {
-            return Object.CallComponentMethod<object>("UnityEngine.UI.Button", "OnPointerEnter", "UnityEngine.UI", new object[] { });
-        }
+
     }
 }
