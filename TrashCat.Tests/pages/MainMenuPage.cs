@@ -87,9 +87,13 @@ namespace TrashCat.Tests.pages
         }
         public void SetFullScreenUsingSetStaticProperty()
         {
-            string[] parameters = new[] {"true"};
+            object[] parameters = {"true"};
             // fails with "Object reference not set to an instance of an object"
-            Driver.SetStaticProperty("UnityEngine.Screen", "fullScreen", "UnityEngine.CoreModule", null);
+            Driver.SetStaticProperty("UnityEngine.Screen", "fullScreen", "UnityEngine.CoreModule", new object[] { "true"});
+        }
+        public dynamic GetCurrentResolutionUsingGetStaticProperty()
+        {
+            return Driver.GetStaticProperty<dynamic>("UnityEngine.Screen", "currentResolution", "UnityEngine.CoreModule");
         }
 
     }

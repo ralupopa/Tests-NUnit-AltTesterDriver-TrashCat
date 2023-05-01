@@ -164,6 +164,15 @@ namespace TrashCat.Tests
             Console.WriteLine(screenshot.scaleDifference.x);
         }
         [Test]
+        public void TestGetStaticProperty()
+        {
+            dynamic resolutionData = mainMenuPage.GetCurrentResolutionUsingGetStaticProperty();
+
+            Assert.True(resolutionData.ContainsKey("width"));
+            Assert.True(resolutionData.ContainsKey("height"));
+            Assert.True(resolutionData.ContainsKey("refreshRate"));
+        }
+        [Test]
         public void TestGetAndSetStaticProperty()
         {
             var screenWidthBefore = mainMenuPage.GetScreenWidthFromProperty();
