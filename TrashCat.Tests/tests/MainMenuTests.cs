@@ -151,6 +151,17 @@ namespace TrashCat.Tests
             Assert.That(storeBtnMethods[1], Is.EqualTo("Void set_hasPopInstruction(Boolean)"));
         }
         [Test]
+        public void TestGetApplicationScreenSize()
+        {
+            var appScreenX = altDriver.GetApplicationScreenSize().x;
+            var screenWidth = mainMenuPage.GetScreenWidth();
+            Assert.That(appScreenX, Is.EqualTo(screenWidth));
+
+            var appScreenY = altDriver.GetApplicationScreenSize().y;
+            var screenHeight = mainMenuPage.GetScreenHeight();
+            Assert.That(appScreenY, Is.EqualTo(screenHeight));
+        }
+        [Test]
         public void TestCallStaticMethod()
         {
             var screenWidth = mainMenuPage.GetScreenWidth();

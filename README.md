@@ -89,7 +89,7 @@ dotnet test --filter <test_class_name>.<test_name>
 - [ ] [SetStaticProperty](https://alttester.com/docs/sdk/pages/commands.html#setstaticproperty)
 - [x] [GetTimeScale](https://alttester.com/docs/sdk/pages/commands.html#gettimescale)
 - [x] [SetTimeScale](https://alttester.com/docs/sdk/pages/commands.html#settimescale)
-- [ ] [GetApplicationScreenSize](https://alttester.com/docs/sdk/pages/commands.html#getapplicationscreensize)
+- [x] [GetApplicationScreenSize](https://alttester.com/docs/sdk/pages/commands.html#getapplicationscreensize)
 - [x] [WaitForCurrentSceneToBe](https://alttester.com/docs/sdk/pages/commands.html#waitforcurrentscenetobe)
 - [x] [GetAllLoadedScenes](https://alttester.com/docs/sdk/pages/commands.html#getallloadedscenes)
 - [x] [UnloadScene](https://alttester.com/docs/sdk/pages/commands.html#unloadscene)
