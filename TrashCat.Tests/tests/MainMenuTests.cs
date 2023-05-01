@@ -87,6 +87,7 @@ namespace TrashCat.Tests
         }
 
         [Test]
+        [Description("Fails because state after PointerEnterObject does not change")]
         public void TestAboutPointerEnterAndExit()
         {
             mainMenuPage.TapSettings();
@@ -184,7 +185,7 @@ namespace TrashCat.Tests
             Assert.True(resolutionData.ContainsKey("refreshRate"));
         }
         [Test]
-        public void TestGetAndSetStaticProperty()
+        public void TestGetStaticPropertyAndCallStaticMethod()
         {
             var screenWidthBefore = mainMenuPage.GetScreenWidthFromProperty();
             var screenHeightBefore = mainMenuPage.GetScreenHeightFromProperty();
@@ -203,10 +204,15 @@ namespace TrashCat.Tests
                 var screenHeightAfter = mainMenuPage.GetScreenHeightFromProperty();
                 Assert.That(screenHeightAfter, Is.EqualTo(newHeight));
                 Assert.That(screenHeightAfter, Is.Not.EqualTo(screenHeightBefore));
-
-                //mainMenuPage.SetFullScreenUsingSetStaticProperty();
+                
                 mainMenuPage.SetScreenResolutionUsingCallStaticMethod(screenWidthBefore, screenHeightBefore);
             });
+        }
+        [Test]
+        [Description("Fails with NullReferenceException: Object reference not set to an instance of an object")]
+        public void TestGetAndSetStaticProperty()
+        {
+            mainMenuPage.SetFullScreenUsingSetStaticProperty();
         }
         [Test]
         public void TestGetCurrentScene()
