@@ -143,7 +143,7 @@ namespace TrashCat.Tests
         {
             var ItemsTabObject = storePage.ItemsTab;
             Assert.NotNull(ItemsTabObject);
-            Assert.That(0.9607843f, Is.EqualTo(storePage.GetColorOfObject()));
+            Assert.That(storePage.GetColorOfObject(), Is.EqualTo(0.9607843f));
 
             var stateBeforePointDown = storePage.GetCurrentSelectionForObject(ItemsTabObject);
             ItemsTabObject.PointerDownFromObject();
