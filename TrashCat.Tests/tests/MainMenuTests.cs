@@ -247,6 +247,22 @@ namespace TrashCat.Tests
                 mainMenuPage.TapCloseStore();
             });
         }
+        [Test]
+        public void TestGetAndSetTimeScale()
+        {
+            Assert.That(altDriver.GetTimeScale(), Is.EqualTo(1f));
+            
+            Assert.Multiple(() =>
+            {
+                altDriver.SetTimeScale(0.4f);
+                Thread.Sleep(2000);
+                var timeScaleFromGame = altDriver.GetTimeScale();
+                Assert.That(timeScaleFromGame, Is.EqualTo(0.4f));
+
+                altDriver.SetTimeScale(1f);
+                Assert.That(altDriver.GetTimeScale(), Is.EqualTo(1f));
+            });
+        }
         public static List<string> ListOfComponentNamesForStoreButton()
         {
             var listComponents = new List<string>()
