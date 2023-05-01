@@ -83,13 +83,17 @@ namespace TrashCat.Tests.pages
         {
             return Driver.CallStaticMethod<short>("UnityEngine.Screen", "get_height", "UnityEngine.CoreModule", new string[] { }, null);
         }
-        public short GetScreenWidthFromProperty()
+        public string GetScreenWidthFromProperty()
         {
-            return Driver.GetStaticProperty<short>("UnityEngine.Screen", "width", "UnityEngine.CoreModule");
+            return Driver.GetStaticProperty<string>("UnityEngine.Screen", "width", "UnityEngine.CoreModule");
         }
-        public void SetScreenResolutionUsingCallStaticMethod(string widthSet)
+        public string GetScreenHeightFromProperty()
         {
-            string[] parameters = new[] { widthSet, "680", "false" };
+            return Driver.GetStaticProperty<string>("UnityEngine.Screen", "height", "UnityEngine.CoreModule");
+        }
+        public void SetScreenResolutionUsingCallStaticMethod(string widthSet, string heightSet)
+        {
+            string[] parameters = new[] { widthSet, heightSet, "false" };
             string [] typeOfParameters = new[] { "System.Int32", "System.Int32", "System.Boolean" };
             Driver.CallStaticMethod<string>("UnityEngine.Screen", "SetResolution", "UnityEngine.CoreModule", parameters, typeOfParameters );
         }

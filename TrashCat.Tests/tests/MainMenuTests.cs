@@ -176,15 +176,26 @@ namespace TrashCat.Tests
         public void TestGetAndSetStaticProperty()
         {
             var screenWidthBefore = mainMenuPage.GetScreenWidthFromProperty();
-            Console.WriteLine(screenWidthBefore);
+            var screenHeightBefore = mainMenuPage.GetScreenHeightFromProperty();
 
             var newWidth = "1240";
-            mainMenuPage.SetScreenResolutionUsingCallStaticMethod(newWidth);
+            var newHeight = "680";
 
-            var screenWidthAfter = mainMenuPage.GetScreenWidthFromProperty();
-            Assert.That(screenWidthAfter.ToString(), Is.EqualTo(newWidth));
+            Assert.Multiple(() =>
+            {
+                mainMenuPage.SetScreenResolutionUsingCallStaticMethod(newWidth, newHeight);
 
-            mainMenuPage.SetFullScreenUsingSetStaticProperty();
+                var screenWidthAfter = mainMenuPage.GetScreenWidthFromProperty();
+                Assert.That(screenWidthAfter, Is.EqualTo(newWidth));
+                Assert.That(screenWidthAfter, Is.Not.EqualTo(screenWidthBefore));
+
+                var screenHeightAfter = mainMenuPage.GetScreenHeightFromProperty();
+                Assert.That(screenHeightAfter, Is.EqualTo(newHeight));
+                Assert.That(screenHeightAfter, Is.Not.EqualTo(screenHeightBefore));
+
+                //mainMenuPage.SetFullScreenUsingSetStaticProperty();
+                mainMenuPage.SetScreenResolutionUsingCallStaticMethod(screenWidthBefore, screenHeightBefore);
+            });
         }
         [Test]
         public void TestGetCurrentScene()
@@ -251,7 +262,7 @@ namespace TrashCat.Tests
         public void TestGetAndSetTimeScale()
         {
             Assert.That(altDriver.GetTimeScale(), Is.EqualTo(1f));
-            
+
             Assert.Multiple(() =>
             {
                 altDriver.SetTimeScale(0.4f);
