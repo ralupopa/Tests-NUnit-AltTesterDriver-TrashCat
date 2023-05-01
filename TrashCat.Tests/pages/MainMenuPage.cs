@@ -21,7 +21,7 @@ namespace TrashCat.Tests.pages
         public AltObject StartButtonChild { get => Driver.FindObject(By.PATH, "//StartButton/Text"); }
         public AltObject AboutButton { get => Driver.FindObject(By.NAME, "About"); }
         public AltObject CloseSettingsButton { get => Driver.FindObject(By.PATH, "//SettingPopup/*/CloseButton"); }
-
+        public AltObject CloseStoreButton { get => Driver.FindObject(By.PATH, "/Canvas/Background/Button"); }
         public bool IsDisplayed()
         {
             if (StoreButton != null && LeaderBoardButton != null && SettingsButton != null && MissionButton != null 
@@ -58,6 +58,14 @@ namespace TrashCat.Tests.pages
         public void TapCloseSettings()
         {
             CloseSettingsButton.Tap();
+        }
+        public void TapStore()
+        {
+            StoreButton.Tap();
+        }
+        public void TapCloseStore()
+        {
+            CloseStoreButton.Tap();
         }
         public string GetCurrentSelectionForObject(AltObject Object)
         {

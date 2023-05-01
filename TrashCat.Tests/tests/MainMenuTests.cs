@@ -186,6 +186,67 @@ namespace TrashCat.Tests
 
             mainMenuPage.SetFullScreenUsingSetStaticProperty();
         }
+        [Test]
+        public void TestGetCurrentScene()
+        {
+            mainMenuPage.LoadScene();
+            Assert.That(altDriver.GetCurrentScene(), Is.EqualTo("Main"));
+        }
+        [Test]
+        public void TestWaitForCurrentSceneToBe()
+        {
+            const string mainSceneName = "Main";
+            const string shopSceneName = "Shop";
+            Assert.That(altDriver.GetAllLoadedScenes().Count, Is.EqualTo(1));
+            Assert.That(altDriver.GetCurrentScene(), Is.EqualTo(mainSceneName));
+
+            Assert.Multiple(() =>
+            {
+                altDriver.LoadScene(shopSceneName);
+                altDriver.WaitForCurrentSceneToBe(shopSceneName);
+
+                Assert.That(altDriver.GetCurrentScene(), Is.EqualTo(shopSceneName));
+
+                // load scene non-additive (as default)
+                altDriver.LoadScene(mainSceneName);
+                Assert.That(altDriver.GetAllLoadedScenes().Count, Is.EqualTo(1));
+                Assert.That(altDriver.GetCurrentScene(), Is.EqualTo(mainSceneName));
+            });
+        }
+        [Test]
+        public void TestScenesMethods()
+        {
+            const string mainSceneName = "Main";
+            const string shopSceneName = "Shop";
+            Assert.That(altDriver.GetAllLoadedScenes().Count, Is.EqualTo(1));
+            Assert.That(altDriver.GetCurrentScene(), Is.EqualTo(mainSceneName));
+
+            Assert.Multiple(() =>
+            {
+                mainMenuPage.TapStore();
+
+                List<string> loadedSceneNames = altDriver.GetAllLoadedScenes();
+                Assert.That(loadedSceneNames.Count, Is.EqualTo(2));
+
+                Assert.That(altDriver.GetCurrentScene(), Is.EqualTo(mainSceneName));
+
+                Assert.That(loadedSceneNames[0], Is.EqualTo(mainSceneName));
+                Assert.That(loadedSceneNames[1], Is.EqualTo(shopSceneName));
+
+                altDriver.UnloadScene(mainSceneName);
+                Assert.That(altDriver.GetAllLoadedScenes().Count, Is.EqualTo(1));
+                Assert.That(altDriver.GetCurrentScene(), Is.EqualTo(shopSceneName));
+
+                // load scene additive, together with current loaded scene
+                altDriver.LoadScene(mainSceneName, false);
+                List<string> loadedSceneNamesSecond = altDriver.GetAllLoadedScenes();
+                Assert.That(loadedSceneNamesSecond.Count, Is.EqualTo(2));
+                Assert.That(loadedSceneNames[0], Is.EqualTo(mainSceneName));
+                Assert.That(loadedSceneNames[1], Is.EqualTo(shopSceneName));
+
+                mainMenuPage.TapCloseStore();
+            });
+        }
         public static List<string> ListOfComponentNamesForStoreButton()
         {
             var listComponents = new List<string>()
