@@ -123,6 +123,20 @@ namespace TrashCat.Tests.pages
         {
             return Driver.GetStaticProperty<dynamic>("UnityEngine.Screen", "currentResolution", "UnityEngine.CoreModule");
         }
-
+        public string UseGetSetStringKeyPlayerPref(string key, string setValue)
+        {
+            Driver.SetKeyPlayerPref(key, setValue);
+            return Driver.GetStringKeyPlayerPref(key);
+        }
+        public int UseGetSetIntKeyPlayerPref(string key, int setValue)
+        {
+            Driver.SetKeyPlayerPref(key, setValue);
+            return Driver.GetIntKeyPlayerPref(key);
+        }
+        public float UseGetSetFloatKeyPlayerPref(string key, float setValue)
+        {
+            Driver.SetKeyPlayerPref(key, setValue);
+            return Driver.GetFloatKeyPlayerPref(key);
+        }
     }
 }

@@ -308,5 +308,59 @@ namespace TrashCat.Tests
             };
             return listComponents;
         }
+
+        [TestCase("enter")]
+        public void TestStringKeyPlayerPref(string key)
+        {
+            string setStringPref = "stringplayerPrefInTrashcat";
+            var stringPlayerPref = mainMenuPage.UseGetSetStringKeyPlayerPref(key, setStringPref);
+            Assert.That(stringPlayerPref, Is.EqualTo(setStringPref));
+        }
+        [TestCase("enter")]
+        public void TestIntKeyPlayerPref(string key)
+        {
+            int setIntPref = 13;
+            var intPlayerPref = mainMenuPage.UseGetSetIntKeyPlayerPref(key, setIntPref);
+            Assert.That(intPlayerPref, Is.EqualTo(setIntPref));
+        }
+        [TestCase("enter")]
+        public void TestFloatKeyPlayerPref(string key)
+        {
+            float setFloatPref = 13f;
+            var floatPlayerPref = mainMenuPage.UseGetSetFloatKeyPlayerPref(key, setFloatPref);
+            Assert.That(floatPlayerPref, Is.EqualTo(setFloatPref));
+        }
+        [Test]
+        public void TestGetAndSetPlayerPrefs()
+        {
+            TestStringKeyPlayerPref("space");
+            TestIntKeyPlayerPref("enter");
+            TestFloatKeyPlayerPref("enter");
+        }
+        [Test]
+        public void TestDeleteKeyPlayerPref()
+        {
+            var keyName = "testMe";
+            TestStringKeyPlayerPref(keyName);
+            altDriver.DeleteKeyPlayerPref(keyName);
+
+            Assert.Throws<NotFoundException>(
+                () => altDriver.GetStringKeyPlayerPref(keyName));
+        }
+        [Test]
+        public void TestDeletePlayerPref()
+        {
+            var keyName = "testMe";
+            var anotherKeyName = "keyTwo";
+            TestStringKeyPlayerPref(keyName);
+            TestFloatKeyPlayerPref(anotherKeyName);
+
+            altDriver.DeletePlayerPref();
+            Assert.Throws<NotFoundException>(
+                () => altDriver.GetStringKeyPlayerPref(keyName));
+
+            Assert.Throws<NotFoundException>(
+                () => altDriver.GetFloatKeyPlayerPref(anotherKeyName));
+        }
     }
 }

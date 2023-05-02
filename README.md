@@ -95,10 +95,17 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] [UnloadScene](https://alttester.com/docs/sdk/pages/commands.html#unloadscene)
 - [x] [LoadScene](https://alttester.com/docs/sdk/pages/commands.html#loadscene)
 - [x] [GetCurrentScene](https://alttester.com/docs/sdk/pages/commands.html#getcurrentscene)
-- [ ] [PlayerPrefKeyType](https://alttester.com/docs/sdk/pages/commands.html#playerprefkeytype)
-- [ ] [GettingPlayerPrefs](https://alttester.com/docs/sdk/pages/commands.html#gettingplayerprefs)
-- [ ] [DeleteKeyPlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deletekeyplayerpref)
-- [ ] [DeletePlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deleteplayerpref)
+- [x] [PlayerPrefKeyType](https://alttester.com/docs/sdk/pages/commands.html#playerprefkeytype)
+- [x] [GettingPlayerPrefs](https://alttester.com/docs/sdk/pages/commands.html#gettingplayerprefs)
+    - [x] GetIntKeyPlayerPref
+    - [x] GetStringKeyPlayerPref
+    - [x] GetFloatKeyPlayerPref
+- [x] [SettingPlayerPrefs](https://alttester.com/docs/sdk/pages/commands.html#settingplayerprefs)
+    - [x] SetKeyPlayerPref(Int)
+    - [x] SetKeyPlayerPref(String)
+    - [x] SetKeyPlayerPref(Float)
+- [x] [DeleteKeyPlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deletekeyplayerpref)
+- [x] [DeletePlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deleteplayerpref)
 
 
 ### Workaround for being able to use SDK 1.8.2 installed as package in project:
