@@ -212,7 +212,11 @@ namespace TrashCat.Tests
         [Description("Fails with NullReferenceException: Object reference not set to an instance of an object")]
         public void TestGetAndSetStaticProperty()
         {
-            mainMenuPage.SetFullScreenUsingSetStaticProperty();
+            Assert.False(mainMenuPage.GetFullScreenFromStaticProperty());
+
+            //mainMenuPage.SetFullScreenUsingSetStaticProperty();
+            //mainMenuPage.SetOrientationUsingSetStaticProperty();
+            mainMenuPage.SetSleepTimeoutFromStaticProperty();
         }
         [Test]
         public void TestGetCurrentScene()
