@@ -308,6 +308,16 @@ namespace TrashCat.Tests
             };
             return listComponents;
         }
+        public static List<string> ListOfScenes()
+        {
+            var listScenes = new List<string>()
+            {
+                "Main",
+                "Shop",
+                "Start"
+            };
+            return listScenes;
+        }
 
         [TestCase("enter")]
         public void TestStringKeyPlayerPref(string key)
@@ -361,6 +371,41 @@ namespace TrashCat.Tests
 
             Assert.Throws<NotFoundException>(
                 () => altDriver.GetFloatKeyPlayerPref(anotherKeyName));
+        }
+        [Test]
+        public void TestGetServerVersion()
+        {
+            var serverVersion = altDriver.GetServerVersion();
+            Console.WriteLine("App was instrumented with server version: " + serverVersion);
+            Assert.That(serverVersion, Is.EqualTo("1.8.0"));
+        }
+        [Test]
+        public void TestGetAllScenes()
+        {
+            var listSceneNames = altDriver.GetAllScenes();
+            Assert.That(listSceneNames.Count(), Is.EqualTo(3));
+
+            Assert.That(listSceneNames, Is.EqualTo(ListOfScenes()));
+        }
+        [Test]
+        public void TestGetAllCameras()
+        {
+            var listCameras = altDriver.GetAllCameras();
+            Assert.That(listCameras.Count(), Is.EqualTo(2));
+
+            Assert.That(listCameras[0].name, Is.EqualTo("UICamera"));
+            Assert.That(listCameras[1].name, Is.EqualTo("Main Camera"));
+        }
+        [Test]
+        public void TestGetActiveCameras()
+        {
+            var listActiveCameras = altDriver.GetAllActiveCameras();
+            Assert.That(listActiveCameras.Count(), Is.EqualTo(2));
+
+            Assert.That(listActiveCameras[0].name, Is.EqualTo("UICamera"));
+            Assert.That(listActiveCameras[1].name, Is.EqualTo("Main Camera"));
+
+            //toDo: research how to de-activate camera an FindObject mentioning Camera
         }
     }
 }

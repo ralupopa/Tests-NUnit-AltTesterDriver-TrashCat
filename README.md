@@ -107,6 +107,12 @@ dotnet test --filter <test_class_name>.<test_name>
 - [x] [DeleteKeyPlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deletekeyplayerpref)
 - [x] [DeletePlayerPref](https://alttester.com/docs/sdk/pages/commands.html#deleteplayerpref)
 
+# Used the following AltDriver methods
+- [x] [GetPNGScreenshot](https://alttester.com/docs/sdk/pages/commands.html#getpngscreenshot)
+- [x] GetServerVersion
+- [x] GetAllScenes
+- [x] GetAllCameras
+- [x] GetAllActiveCameras
 
 ### Workaround for being able to use SDK 1.8.2 installed as package in project:
 - get `altwebsocket-sharp.dll` from [here](https://github.com/alttester/AltTester-Unity-SDK/tree/development/Assets/AltTester/3rdParty/websocket-sharp/netstandard2.0) and put in project's bin\Debug\net7.0
