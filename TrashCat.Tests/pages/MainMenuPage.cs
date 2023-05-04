@@ -103,6 +103,9 @@ namespace TrashCat.Tests.pages
             // fails with "Object reference not set to an instance of an object"
 
             //Driver.SetStaticProperty("UnityEngine.Screen", "fullScreen", "UnityEngine.CoreModule", new object[] { "true"});
+
+            var heightCurrent = Driver.GetStaticProperty<string>("UnityEngine.Screen", "height", "UnityEngine.CoreModule");
+            Console.WriteLine("Height from GetStaticProperty " + heightCurrent);
             object[] newValue = new[] {"true"};
             Driver.SetStaticProperty("UnityEngine.Screen", "fullScreen", "UnityEngine.CoreModule", newValue);
         }

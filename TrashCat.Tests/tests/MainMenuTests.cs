@@ -213,10 +213,17 @@ namespace TrashCat.Tests
         public void TestGetAndSetStaticProperty()
         {
             Assert.False(mainMenuPage.GetFullScreenFromStaticProperty());
+            var heightCurrent = altDriver.GetStaticProperty<int>("UnityEngine.Screen", "sleepTimeout", "UnityEngine.CoreModule");
+            Console.WriteLine("Height from GetStaticProperty " + heightCurrent);
 
+            var setValue = true;
+            
+            //altDriver.SetStaticProperty("UnityEngine.Screen", "sleepTimeout", "UnityEngine.CoreModule", setValue);
+
+            altDriver.SetStaticProperty("UnityEngine.Screen", "fullScreen", "UnityEngine.CoreModule", true);
             //mainMenuPage.SetFullScreenUsingSetStaticProperty();
             //mainMenuPage.SetOrientationUsingSetStaticProperty();
-            mainMenuPage.SetSleepTimeoutFromStaticProperty();
+            //mainMenuPage.SetSleepTimeoutFromStaticProperty();
         }
         [Test]
         public void TestGetCurrentScene()
