@@ -15,7 +15,7 @@ dotnet new nunit
 [AltTester Unity SDK framework](https://alttester.com/docs/sdk/) contains `AltDriver` class used to connect to the instrumented game developed w/ Unity. AltTester-Driver for C# is available as a nuget package. Install [AltTester-Driver nuget package](https://www.nuget.org/packages/AltTester-Driver#versions-body-tab)
 
 ```
-dotnet add package AltTester-Driver --version 1.8.2
+dotnet add package AltTester-Driver --version 2.0.0
 ```
 
 # Run tests manually (with [dotnet CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-test))
